@@ -16,8 +16,8 @@ queries = {
 }
 
 # call the prometheus API to get the metrics
-def get_metrics(query, start_time=None, end_time=None):
-    r = requests.get(EDGE_URL, params={
+def get_metrics(query, url, start_time=None, end_time=None):
+    r = requests.get(url, params={
         'query': query,
         'start': start_time,
         'end': end_time,
@@ -44,26 +44,41 @@ def get_metrics(query, start_time=None, end_time=None):
     else:        
         return 0, 0
 
+def work_test(test_cloud : bool):
+    url = EDGE_URL
+    vm = EDGE_VM
+    if (test_cloud):
+        url = CLOUD_URL
+        vm = CLOUD_VM
+
+    start_time = int(time.time())
+
+    subprocess.run([
+        "wrk",
+        "-t4",
+        "-c200",
+        "-d2m",
+        vm
+    ])
+
+    end_time = int(time.time())
+
+    time.sleep(1)
+
+    # log the metrics
+    metrics = {}
+    for name, q in queries.items():
+        peak, avg = get_metrics(q, url, start_time, end_time)
+        metrics[name] = {"peak": peak, "avg": avg}
+
+    print(metrics)
+
 print("Begin work test...")
+tests = [
+    [False, 3],
+    [True, 3]
+]
+for testCloud, count in tests:
+    for i in range(0, count):
+        work_test(testCloud)
 
-start_time = int(time.time())
-
-subprocess.run([
-    "wrk",
-    "-t4",
-    "-c200",
-    "-d2m",
-    "http://20.203.185.236:32077"
-])
-
-end_time = int(time.time())
-
-time.sleep(5)  # wait for metrics to be collected
-
-# log the metrics
-metrics = {}
-for name, q in queries.items():
-    peak, avg = get_metrics(q, start_time, end_time)
-    metrics[name] = {"peak": peak, "avg": avg}
-
-print(metrics)
