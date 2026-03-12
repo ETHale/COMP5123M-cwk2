@@ -9,7 +9,7 @@ EDGE_VM = "http://20.203.185.236:32077"
 CLOUD_VM = "http://20.250.0.245:32077"
 
 queries = {
-    "cpu": "sum(rate(container_cpu_usage_seconds_total[30s]))", 
+    "cpu_usage": "sum(rate(container_cpu_usage_seconds_total[30s]))", 
     "memory": "container_memory_usage_bytes",
     "cpu_utilization": "sum(rate(container_cpu_usage_seconds_total[30s])) / count(node_cpu_seconds_total)",
     "memory_utilization": "sum(container_memory_usage_bytes) / sum(machine_memory_bytes)",
@@ -44,7 +44,7 @@ def get_metrics(query, url, start_time=None, end_time=None):
     else:        
         return 0, 0
 
-def work_test(test_cloud : bool):
+def work_test(test_cloud : bool, threads = 4, connections = 200):
     url = EDGE_URL
     vm = EDGE_VM
     if (test_cloud):
@@ -55,8 +55,8 @@ def work_test(test_cloud : bool):
 
     subprocess.run([
         "wrk",
-        "-t4",
-        "-c200",
+        f"-t{threads}",
+        f"-c{connections}",
         "-d2m",
         vm
     ])
@@ -73,12 +73,16 @@ def work_test(test_cloud : bool):
 
     print(metrics)
 
-print("Begin work test...")
+print("Begin wrk test...")
 tests = [
     [False, 3],
     [True, 3]
 ]
 for testCloud, count in tests:
     for i in range(0, count):
-        work_test(testCloud)
+        if (testCloud):
+            print("\nTESTING CLOUD VM")
+        else:
+            print("\nTESTING EDGE VM")
+        work_test(testCloud, 8, 400)
 
