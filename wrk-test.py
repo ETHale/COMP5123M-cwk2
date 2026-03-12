@@ -3,6 +3,10 @@ import requests
 import time 
 
 EDGE_URL = "http://20.203.185.236:31674/api/v1/query_range"
+CLOUD_URL = "http://20.250.0.245:32186/api/v1/query_range"
+
+EDGE_VM = "http://20.203.185.236:32077"
+CLOUD_VM = "http://20.250.0.245:32077"
 
 queries = {
     "cpu": "sum(rate(container_cpu_usage_seconds_total[30s]))", 
