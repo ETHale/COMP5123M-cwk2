@@ -44,7 +44,7 @@ def get_metrics(query, url, start_time=None, end_time=None):
     else:        
         return 0, 0
 
-def work_test(test_cloud : bool, threads = 4, connections = 200):
+def work_test(test_cloud : bool, threads = 4, connections = 200, mins = 2):
     url = EDGE_URL
     vm = EDGE_VM
     if (test_cloud):
@@ -57,7 +57,7 @@ def work_test(test_cloud : bool, threads = 4, connections = 200):
         "wrk",
         f"-t{threads}",
         f"-c{connections}",
-        "-d2m",
+        f"-d{mins}m",
         vm
     ])
 
@@ -84,5 +84,5 @@ for testCloud, count in tests:
             print("\nTESTING CLOUD VM")
         else:
             print("\nTESTING EDGE VM")
-        work_test(testCloud, 8, 400)
+        work_test(testCloud, 20, 1000, 5)
 

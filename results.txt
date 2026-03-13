@@ -1,67 +1,73 @@
 Begin wrk test...
 
 TESTING EDGE VM
-Running 2m test @ http://20.203.185.236:32077
-  8 threads and 400 connections
+Running 5m test @ http://20.203.185.236:32077
+  20 threads and 1000 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    51.49ms   12.62ms 325.24ms   83.66%
-    Req/Sec     0.98k   131.71     1.27k    81.61%
-  933977 requests in 2.00m, 0.99GB read
-Requests/sec:   7776.62
-Transfer/sec:      8.41MB
-{'cpu_usage': {'peak': 1.869964466878168, 'avg': 1.210427510754757}, 'memory': {'peak': 405344256.0, 'avg': 67957475.55555555}, 'cpu_utilization': {'peak': 0.1168727791798855, 'avg': 0.07565171942217232}, 'memory_utilization': {'peak': 0.6721708320356581, 'avg': 0.6710638195559546}}
+    Latency   200.55ms  211.81ms   2.00s    87.49%
+    Req/Sec   285.25     66.65     0.92k    72.77%
+  1694378 requests in 5.00m, 1.79GB read
+  Socket errors: connect 0, read 0, write 0, timeout 2470
+Requests/sec:   5646.09
+Transfer/sec:      6.11MB
+{'cpu_usage': {'peak': 1.3742266478524818, 'avg': 1.19562337179485}, 'memory': {'peak': 448528384.0, 'avg': 70218961.67619048}, 'cpu_utilization': {'peak': 0.08588916549078011, 'avg': 0.07472646073717812}, 'memory_utilization': {'peak': 0.7007642479973628, 'avg': 0.6933968564704722}}
 
 TESTING EDGE VM
-Running 2m test @ http://20.203.185.236:32077
-  8 threads and 400 connections
+Running 5m test @ http://20.203.185.236:32077
+  20 threads and 1000 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    51.22ms   12.09ms 325.30ms   82.70%
-    Req/Sec     0.98k   129.49     1.32k    83.08%
-  938340 requests in 2.00m, 0.99GB read
-Requests/sec:   7813.99
-Transfer/sec:      8.45MB
-{'cpu_usage': {'peak': 1.880646796648605, 'avg': 1.450806643211785}, 'memory': {'peak': 405397504.0, 'avg': 68009426.48888889}, 'cpu_utilization': {'peak': 0.1175404247905378, 'avg': 0.09067541520073656}, 'memory_utilization': {'peak': 0.6723973353502914, 'avg': 0.6715768225989188}}
+    Latency   193.78ms  203.91ms   2.00s    87.18%
+    Req/Sec   287.58     67.68     1.11k    73.52%
+  1708035 requests in 5.00m, 1.80GB read
+  Socket errors: connect 0, read 0, write 83, timeout 2110
+Requests/sec:   5691.72
+Transfer/sec:      6.16MB
+{'cpu_usage': {'peak': 1.3868638382995058, 'avg': 1.1659292365582625}, 'memory': {'peak': 449024000.0, 'avg': 70991901.25714286}, 'cpu_utilization': {'peak': 0.08667898989371911, 'avg': 0.07287057728489141}, 'memory_utilization': {'peak': 0.7068161456742835, 'avg': 0.7010294654250947}}
 
 TESTING EDGE VM
-Running 2m test @ http://20.203.185.236:32077
-  8 threads and 400 connections
+Running 5m test @ http://20.203.185.236:32077
+  20 threads and 1000 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    52.14ms   15.59ms 335.50ms   87.33%
-    Req/Sec     0.97k   152.13     1.32k    84.05%
-  927338 requests in 2.00m, 0.98GB read
-Requests/sec:   7721.31
-Transfer/sec:      8.35MB
-{'cpu_usage': {'peak': 1.8813043345426756, 'avg': 1.2873100070121628}, 'memory': {'peak': 405536768.0, 'avg': 68113487.64444445}, 'cpu_utilization': {'peak': 0.11758152090891723, 'avg': 0.08045687543826018}, 'memory_utilization': {'peak': 0.6731354934738732, 'avg': 0.6726044016245321}}
+    Latency   189.32ms  201.00ms   2.00s    86.79%
+    Req/Sec   286.68     66.13     1.00k    69.40%
+  1703983 requests in 5.00m, 1.80GB read
+  Socket errors: connect 0, read 0, write 129, timeout 1937
+Requests/sec:   5678.09
+Transfer/sec:      6.14MB
+{'cpu_usage': {'peak': 1.4060587578689208, 'avg': 1.001827832359614}, 'memory': {'peak': 448069632.0, 'avg': 70275764.41904762}, 'cpu_utilization': {'peak': 0.08787867236680755, 'avg': 0.06261423952247587}, 'memory_utilization': {'peak': 0.7082570736925979, 'avg': 0.693957771106574}}
 
 TESTING CLOUD VM
-Running 2m test @ http://20.250.0.245:32077
-  8 threads and 400 connections
+Running 5m test @ http://20.250.0.245:32077
+  20 threads and 1000 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    96.83ms   29.40ms 513.81ms   76.99%
-    Req/Sec   519.12     85.76     1.07k    76.95%
-  495758 requests in 2.00m, 536.14MB read
-Requests/sec:   4128.08
-Transfer/sec:      4.46MB
-{'cpu_usage': {'peak': 1.337241623941231, 'avg': 0.8980932208847592}, 'memory': {'peak': 747859968.0, 'avg': 114716416.0}, 'cpu_utilization': {'peak': 0.04178880074816347, 'avg': 0.028065413152648724}, 'memory_utilization': {'peak': 0.32979524038601743, 'avg': 0.3294496979689703}}
+    Latency   213.87ms  194.95ms   2.00s    85.91%
+    Req/Sec   253.40     48.07     0.86k    71.78%
+  1506071 requests in 5.00m, 1.59GB read
+  Socket errors: connect 0, read 0, write 0, timeout 2154
+Requests/sec:   5018.61
+Transfer/sec:      5.43MB
+{'cpu_usage': {'peak': 1.2584491557968456, 'avg': 0.9155229832205626}, 'memory': {'peak': 745320448.0, 'avg': 110863843.55555555}, 'cpu_utilization': {'peak': 0.039326536118651424, 'avg': 0.02861009322564258}, 'memory_utilization': {'peak': 0.32061508510758746, 'avg': 0.3183856421652586}}
 
 TESTING CLOUD VM
-Running 2m test @ http://20.250.0.245:32077
-  8 threads and 400 connections
+Running 5m test @ http://20.250.0.245:32077
+  20 threads and 1000 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    96.67ms   27.06ms 951.12ms   75.91%
-    Req/Sec   519.41     72.49     0.93k    74.04%
-  496392 requests in 2.00m, 536.83MB read
-Requests/sec:   4133.53
-Transfer/sec:      4.47MB
-{'cpu_usage': {'peak': 1.352208589260781, 'avg': 0.9326602557777657}, 'memory': {'peak': 747479040.0, 'avg': 114909933.03703703}, 'cpu_utilization': {'peak': 0.042256518414399404, 'avg': 0.029145632993055177}, 'memory_utilization': {'peak': 0.331077668377796, 'avg': 0.33000545216376403}}
+    Latency   210.18ms  194.56ms   2.00s    86.06%
+    Req/Sec   254.10     51.58     1.12k    73.47%
+  1509047 requests in 5.00m, 1.59GB read
+  Socket errors: connect 0, read 0, write 26, timeout 2160
+Requests/sec:   5028.61
+Transfer/sec:      5.44MB
+{'cpu_usage': {'peak': 1.253316625973943, 'avg': 0.9922358082159768}, 'memory': {'peak': 745025536.0, 'avg': 110857398.85714285}, 'cpu_utilization': {'peak': 0.03916614456168572, 'avg': 0.031007369006749275}, 'memory_utilization': {'peak': 0.3204386379159038, 'avg': 0.3183671338817924}}
 
 TESTING CLOUD VM
-Running 2m test @ http://20.250.0.245:32077
-  8 threads and 400 connections
+Running 5m test @ http://20.250.0.245:32077
+  20 threads and 1000 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    97.19ms   29.15ms 655.49ms   74.17%
-    Req/Sec   516.58     74.92     0.98k    73.65%
-  493594 requests in 2.00m, 533.80MB read
-Requests/sec:   4110.46
-Transfer/sec:      4.45MB
-{'cpu_usage': {'peak': 1.346675556211155, 'avg': 1.1568951028881107}, 'memory': {'peak': 747692032.0, 'avg': 115285579.85185185}, 'cpu_utilization': {'peak': 0.04208361113159859, 'avg': 0.03615297196525346}, 'memory_utilization': {'peak': 0.33125460570056764, 'avg': 0.33108425791797924}}
+    Latency   206.53ms  188.58ms   2.00s    85.94%
+    Req/Sec   254.16     48.52     1.03k    72.88%
+  1511568 requests in 5.00m, 1.60GB read
+  Socket errors: connect 0, read 0, write 51, timeout 1664
+Requests/sec:   5036.89
+Transfer/sec:      5.45MB
+{'cpu_usage': {'peak': 1.2373428078009148, 'avg': 1.0064682362747714}, 'memory': {'peak': 752361472.0, 'avg': 111360662.34920634}, 'cpu_utilization': {'peak': 0.038666962743778586, 'avg': 0.03145213238358661}, 'memory_utilization': {'peak': 0.3206807626733808, 'avg': 0.3198124371020318}}
